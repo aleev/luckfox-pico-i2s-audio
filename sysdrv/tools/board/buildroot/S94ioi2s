@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# sshd        Config I2S direction.
+#
+
+start() {
+
+	printf "Configuring I2S Outside: "
+	io -4 0xff000004 0x007c003c
+	echo i2s0_8ch_mclkout clk_i2s0_8ch_tx_src > /proc/clk/parent
+	echo "OK"
+}
+stop() {
+	printf "Reading I2S direction: "
+	io -4 0xff000004
+	echo "OK"
+}
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart|reload)
+	restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+
