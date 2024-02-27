@@ -31,68 +31,68 @@
 		};
 	};
 
-	clk {
-		/omit-if-no-ref/
-		clk_32k: clk-32k {
-			rockchip,pins =
-				/* clk_32k */
-				<0 RK_PA0 2 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		clk_refout: clk-refout {
-			rockchip,pins =
-				/* clk_refout */
-				<0 RK_PA0 3 &pcfg_pull_none>;
-		};
-	};
+//	clk {
+//		/omit-if-no-ref/
+//		clk_32k: clk-32k {
+//			rockchip,pins =
+//				/* clk_32k */
+//				<0 RK_PA0 2 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		clk_refout: clk-refout {
+//			rockchip,pins =
+//				/* clk_refout */
+//				<0 RK_PA0 3 &pcfg_pull_none>;
+//		};
+//	};
 
-	dsmaudio {
-		/omit-if-no-ref/
-		dsmaudio_pins: dsmaudio-pins {
-			rockchip,pins =
-				/* dsmaudio_n */
-				<1 RK_PD3 7 &pcfg_pull_none>,
-				/* dsmaudio_p */
-				<1 RK_PD2 7 &pcfg_pull_none>;
-		};
-	};
+//	dsmaudio {
+//		/omit-if-no-ref/
+//		dsmaudio_pins: dsmaudio-pins {
+//			rockchip,pins =
+//				/* dsmaudio_n */
+//				<1 RK_PD3 7 &pcfg_pull_none>,
+//				/* dsmaudio_p */
+//				<1 RK_PD2 7 &pcfg_pull_none>;
+//		};
+//	};
 
-	emmc {
-		/omit-if-no-ref/
-		emmc_bus8: emmc-bus8 {
-			rockchip,pins =
-				/* emmc_d0 */
-				<4 RK_PA4 1 &pcfg_pull_up_drv_level_2>,
-				/* emmc_d1 */
-				<4 RK_PA3 1 &pcfg_pull_up_drv_level_2>,
-				/* emmc_d2 */
-				<4 RK_PA2 1 &pcfg_pull_up_drv_level_2>,
-				/* emmc_d3 */
-				<4 RK_PA6 1 &pcfg_pull_up_drv_level_2>,
-				/* emmc_d4 */
-				<4 RK_PA5 1 &pcfg_pull_up_drv_level_2>,
-				/* emmc_d5 */
-				<4 RK_PA7 1 &pcfg_pull_up_drv_level_2>,
-				/* emmc_d6 */
-				<4 RK_PA1 1 &pcfg_pull_up_drv_level_2>,
-				/* emmc_d7 */
-				<4 RK_PA0 1 &pcfg_pull_up_drv_level_2>;
-		};
-
-		/omit-if-no-ref/
-		emmc_clk: emmc-clk {
-			rockchip,pins =
-				/* emmc_clk */
-				<4 RK_PB1 1 &pcfg_pull_up_drv_level_2>;
-		};
-
-		/omit-if-no-ref/
-		emmc_cmd: emmc-cmd {
-			rockchip,pins =
-				/* emmc_cmd */
-				<4 RK_PB0 1 &pcfg_pull_up_drv_level_2>;
-		};
-	};
+//	emmc {
+//		/omit-if-no-ref/
+//		emmc_bus8: emmc-bus8 {
+//			rockchip,pins =
+//				/* emmc_d0 */
+//				<4 RK_PA4 1 &pcfg_pull_up_drv_level_2>,
+//				/* emmc_d1 */
+//				<4 RK_PA3 1 &pcfg_pull_up_drv_level_2>,
+//				/* emmc_d2 */
+//				<4 RK_PA2 1 &pcfg_pull_up_drv_level_2>,
+//				/* emmc_d3 */
+//				<4 RK_PA6 1 &pcfg_pull_up_drv_level_2>,
+//				/* emmc_d4 */
+//				<4 RK_PA5 1 &pcfg_pull_up_drv_level_2>,
+//				/* emmc_d5 */
+//				<4 RK_PA7 1 &pcfg_pull_up_drv_level_2>,
+//				/* emmc_d6 */
+//				<4 RK_PA1 1 &pcfg_pull_up_drv_level_2>,
+//				/* emmc_d7 */
+//				<4 RK_PA0 1 &pcfg_pull_up_drv_level_2>;
+//		};
+//
+//		/omit-if-no-ref/
+//		emmc_clk: emmc-clk {
+//			rockchip,pins =
+//				/* emmc_clk */
+//				<4 RK_PB1 1 &pcfg_pull_up_drv_level_2>;
+//		};
+//
+//		/omit-if-no-ref/
+//		emmc_cmd: emmc-cmd {
+//			rockchip,pins =
+//				/* emmc_cmd */
+//				<4 RK_PB0 1 &pcfg_pull_up_drv_level_2>;
+//		};
+//	};
 
 	flash {
 		/omit-if-no-ref/
@@ -274,29 +274,98 @@
 		};
 	};
 
-	i2s0 {
+//	i2s0_8ch {
+//		/omit-if-no-ref/
+//		i2s0_pins: i2s0-pins {
+//			rockchip,pins =
+//				/* i2s0_lrck */
+//				<2 RK_PA1 2 &pcfg_pull_none>,
+//				/* i2s0_mclk */
+//				<2 RK_PA2 2 &pcfg_pull_none>,
+//				/* i2s0_sclk */
+//				<2 RK_PA0 2 &pcfg_pull_none>,
+//				/* i2s0_sdi0 */
+//				<2 RK_PA5 2 &pcfg_pull_none>,
+//				/* i2s0_sdo0 */
+//				<2 RK_PA4 2 &pcfg_pull_none>,
+//				/* i2s0_sdo1_sdi3 */
+//				<2 RK_PA7 2 &pcfg_pull_none>,
+//				/* i2s0_sdo2_sdi2 */
+//				<2 RK_PA6 2 &pcfg_pull_none>,
+//				/* i2s0_sdo3_sdi1 */
+//				<2 RK_PA3 2 &pcfg_pull_none>;
+//		};
+//	};
+
+i2s0_8ch {
+//		/omit-if-no-ref/
+//		i2s0_pins: i2s0-pins {
+//		i2s0m0_lrck_rx: i2s0m0-lrck-rx {
+//			rockchip,pins =
+//				/* i2s0m0_lrck_rx */
+//				<2 RK_PA1 2 &pcfg_pull_none>;
+//		};
 		/omit-if-no-ref/
-		i2s0_pins: i2s0-pins {
+		i2s0m0_lrck_tx: i2s0m0-lrck-tx {
 			rockchip,pins =
-				/* i2s0_lrck */
-				<2 RK_PA1 2 &pcfg_pull_none>,
-				/* i2s0_mclk */
-				<2 RK_PA2 2 &pcfg_pull_none>,
-				/* i2s0_sclk */
-				<2 RK_PA0 2 &pcfg_pull_none>,
-				/* i2s0_sdi0 */
-				<2 RK_PA5 2 &pcfg_pull_none>,
-				/* i2s0_sdo0 */
-				<2 RK_PA4 2 &pcfg_pull_none>,
-				/* i2s0_sdo1_sdi3 */
-				<2 RK_PA7 2 &pcfg_pull_none>,
-				/* i2s0_sdo2_sdi2 */
-				<2 RK_PA6 2 &pcfg_pull_none>,
-				/* i2s0_sdo3_sdi1 */
+				/* i2s0m0_lrck_tx */
+				<2 RK_PA1 2 &pcfg_pull_none>;
+		};
+		/omit-if-no-ref/
+		i2s0m0_mclk_tx: i2s0m0-mclk-tx {
+			rockchip,pins =
+				/* i2s0m0_mclk_tx */
+				<2 RK_PA2 2 &pcfg_pull_none>;
+		};
+		/omit-if-no-ref/
+                i2s0m0_mclk_rx: i2s0m0-mclk-rx {
+                        rockchip,pins =
+                                /* i2s0m0_mclk_rx */
+                                <2 RK_PA2 2 &pcfg_pull_none>;
+		};
+//		/omit-if-no-ref/
+//		i2s0m0_sclk_rx: i2s0m0-sclk-rx {
+//			rockchip,pins =
+//				/* i2s0m0_sclk_rx */
+//				<2 RK_PA0 2 &pcfg_pull_none>;
+//		};
+		/omit-if-no-ref/
+		i2s0m0_sclk_tx: i2s0m0-sclk-tx {
+			rockchip,pins =
+				/* i2s0m0_sclk_tx */
+				<2 RK_PA0 2 &pcfg_pull_none>;
+		};
+		/omit-if-no-ref/
+		i2s0m0_sdi0: i2s0m0-sdi0 {
+			rockchip,pins =
+				/* i2s0m0_sdi0 */
+				<2 RK_PA5 2 &pcfg_pull_none>;
+		};
+		/omit-if-no-ref/
+		i2s0m0_sdo0: i2s0m0-sdo0 {
+			rockchip,pins =
+				/* i2s0m0_sdo0 */
+				<2 RK_PA4 2 &pcfg_pull_none>;
+		};
+		/omit-if-no-ref/
+		i2s0m0_sdo1_sdi3: i2s0m0-sdo1-sdi3 {
+			rockchip,pins =
+				/* i2s0m0_sdo1_sdi3 */
+				<2 RK_PA7 2 &pcfg_pull_none>;
+		};
+		/omit-if-no-ref/
+		i2s0m0_sdo2_sdi2: i2s0m0-sdo2-sdi2 {
+			rockchip,pins =
+				/* i2s0m0_sdo2_sdi2 */
+				<2 RK_PA6 2 &pcfg_pull_none>;
+		};
+		/omit-if-no-ref/
+		i2s0m0_sdo3_sdi1: i2s0m0-sdo3-sdi1 {
+			rockchip,pins =
+				/* i2s0m0_sdo3_sdi1 */
 				<2 RK_PA3 2 &pcfg_pull_none>;
 		};
-	};
-
+};
 	lcd {
 		/omit-if-no-ref/
 		lcd_pins: lcd-pins {
@@ -433,261 +502,261 @@
 		};
 	};
 
-	pwm0 {
-		/omit-if-no-ref/
-		pwm0m0_pins: pwm0m0-pins {
-			rockchip,pins =
-				/* pwm0_m0 */
-				<1 RK_PA2 1 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm0m1_pins: pwm0m1-pins {
-			rockchip,pins =
-				/* pwm0_m1 */
-				<1 RK_PD2 6 &pcfg_pull_none>;
-		};
-	};
-
-	pwm1 {
-		/omit-if-no-ref/
-		pwm1m0_pins: pwm1m0-pins {
-			rockchip,pins =
-				/* pwm1_m0 */
-				<0 RK_PA4 2 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm1m1_pins: pwm1m1-pins {
-			rockchip,pins =
-				/* pwm1_m1 */
-				<4 RK_PC1 2 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm1m2_pins: pwm1m2-pins {
-			rockchip,pins =
-				/* pwm1_m2 */
-				<3 RK_PD3 2 &pcfg_pull_none>;
-		};
-	};
-
-	pwm2 {
-		/omit-if-no-ref/
-		pwm2m0_pins: pwm2m0-pins {
-			rockchip,pins =
-				/* pwm2_m0 */
-				<0 RK_PA1 2 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm2m1_pins: pwm2m1-pins {
-			rockchip,pins =
-				/* pwm2_m1 */
-				<2 RK_PA6 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm2m2_pins: pwm2m2-pins {
-			rockchip,pins =
-				/* pwm2_m2 */
-				<1 RK_PC0 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm3 {
-		/omit-if-no-ref/
-		pwm3m0_pins: pwm3m0-pins {
-			rockchip,pins =
-				/* pwm3_ir_m0 */
-				<0 RK_PA2 1 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm3m1_pins: pwm3m1-pins {
-			rockchip,pins =
-				/* pwm3_ir_m1 */
-				<1 RK_PB0 2 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm3m2_pins: pwm3m2-pins {
-			rockchip,pins =
-				/* pwm3_ir_m2 */
-				<1 RK_PD0 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm4 {
-		/omit-if-no-ref/
-		pwm4m0_pins: pwm4m0-pins {
-			rockchip,pins =
-				/* pwm4_m0 */
-				<1 RK_PA1 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm4m1_pins: pwm4m1-pins {
-			rockchip,pins =
-				/* pwm4_m1 */
-				<2 RK_PA7 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm4m2_pins: pwm4m2-pins {
-			rockchip,pins =
-				/* pwm4_m2 */
-				<1 RK_PC1 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm5 {
-		/omit-if-no-ref/
-		pwm5m0_pins: pwm5m0-pins {
-			rockchip,pins =
-				/* pwm5_m0 */
-				<0 RK_PA5 3 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm5m1_pins: pwm5m1-pins {
-			rockchip,pins =
-				/* pwm5_m1 */
-				<2 RK_PB0 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm5m2_pins: pwm5m2-pins {
-			rockchip,pins =
-				/* pwm5_m2 */
-				<1 RK_PC2 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm6 {
-		/omit-if-no-ref/
-		pwm6m0_pins: pwm6m0-pins {
-			rockchip,pins =
-				/* pwm6_m0 */
-				<0 RK_PA6 3 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm6m1_pins: pwm6m1-pins {
-			rockchip,pins =
-				/* pwm6_m1 */
-				<2 RK_PB1 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm6m2_pins: pwm6m2-pins {
-			rockchip,pins =
-				/* pwm6_m2 */
-				<1 RK_PC3 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm7 {
-		/omit-if-no-ref/
-		pwm7m0_pins: pwm7m0-pins {
-			rockchip,pins =
-				/* pwm7_ir_m0 */
-				<1 RK_PA0 3 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm7m1_pins: pwm7m1-pins {
-			rockchip,pins =
-				/* pwm7_ir_m1 */
-				<1 RK_PB1 2 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm7m2_pins: pwm7m2-pins {
-			rockchip,pins =
-				/* pwm7_ir_m2 */
-				<3 RK_PC6 2 &pcfg_pull_none>;
-		};
-	};
-
-	pwm8 {
-		/omit-if-no-ref/
-		pwm8m0_pins: pwm8m0-pins {
-			rockchip,pins =
-				/* pwm8_m0 */
-				<3 RK_PA3 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm8m1_pins: pwm8m1-pins {
-			rockchip,pins =
-				/* pwm8_m1 */
-				<1 RK_PC4 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm9 {
-		/omit-if-no-ref/
-		pwm9m0_pins: pwm9m0-pins {
-			rockchip,pins =
-				/* pwm9_m0 */
-				<3 RK_PA2 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm9m1_pins: pwm9m1-pins {
-			rockchip,pins =
-				/* pwm9_m1 */
-				<1 RK_PC5 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm10 {
-		/omit-if-no-ref/
-		pwm10m0_pins: pwm10m0-pins {
-			rockchip,pins =
-				/* pwm10_m0 */
-				<3 RK_PA4 5 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm10m1_pins: pwm10m1-pins {
-			rockchip,pins =
-				/* pwm10_m1 */
-				<1 RK_PC6 3 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm10m2_pins: pwm10m2-pins {
-			rockchip,pins =
-				/* pwm10_m2 */
-				<1 RK_PD1 3 &pcfg_pull_none>;
-		};
-	};
-
-	pwm11 {
-		/omit-if-no-ref/
-		pwm11m0_pins: pwm11m0-pins {
-			rockchip,pins =
-				/* pwm11_ir_m0 */
-				<3 RK_PA5 5 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm11m1_pins: pwm11m1-pins {
-			rockchip,pins =
-				/* pwm11_ir_m1 */
-				<1 RK_PC7 3 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		pwm11m2_pins: pwm11m2-pins {
-			rockchip,pins =
-				/* pwm11_ir_m2 */
-				<1 RK_PD3 5 &pcfg_pull_none>;
-		};
-	};
-
+//	pwm0 {
+//		/omit-if-no-ref/
+//		pwm0m0_pins: pwm0m0-pins {
+//			rockchip,pins =
+//				/* pwm0_m0 */
+//				<1 RK_PA2 1 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm0m1_pins: pwm0m1-pins {
+//			rockchip,pins =
+//				/* pwm0_m1 */
+//				<1 RK_PD2 6 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm1 {
+//		/omit-if-no-ref/
+//		pwm1m0_pins: pwm1m0-pins {
+//			rockchip,pins =
+//				/* pwm1_m0 */
+//				<0 RK_PA4 2 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm1m1_pins: pwm1m1-pins {
+//			rockchip,pins =
+//				/* pwm1_m1 */
+//				<4 RK_PC1 2 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm1m2_pins: pwm1m2-pins {
+//			rockchip,pins =
+//				/* pwm1_m2 */
+//				<3 RK_PD3 2 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm2 {
+//		/omit-if-no-ref/
+//		pwm2m0_pins: pwm2m0-pins {
+//			rockchip,pins =
+//				/* pwm2_m0 */
+//				<0 RK_PA1 2 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm2m1_pins: pwm2m1-pins {
+//			rockchip,pins =
+//				/* pwm2_m1 */
+//				<2 RK_PA6 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm2m2_pins: pwm2m2-pins {
+//			rockchip,pins =
+//				/* pwm2_m2 */
+//				<1 RK_PC0 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm3 {
+//		/omit-if-no-ref/
+//		pwm3m0_pins: pwm3m0-pins {
+//			rockchip,pins =
+//				/* pwm3_ir_m0 */
+//				<0 RK_PA2 1 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm3m1_pins: pwm3m1-pins {
+//			rockchip,pins =
+//				/* pwm3_ir_m1 */
+//				<1 RK_PB0 2 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm3m2_pins: pwm3m2-pins {
+//			rockchip,pins =
+//				/* pwm3_ir_m2 */
+//				<1 RK_PD0 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm4 {
+//		/omit-if-no-ref/
+//		pwm4m0_pins: pwm4m0-pins {
+//			rockchip,pins =
+//				/* pwm4_m0 */
+//				<1 RK_PA1 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm4m1_pins: pwm4m1-pins {
+//			rockchip,pins =
+//				/* pwm4_m1 */
+//				<2 RK_PA7 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm4m2_pins: pwm4m2-pins {
+//			rockchip,pins =
+//				/* pwm4_m2 */
+//				<1 RK_PC1 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm5 {
+//		/omit-if-no-ref/
+//		pwm5m0_pins: pwm5m0-pins {
+//			rockchip,pins =
+//				/* pwm5_m0 */
+//				<0 RK_PA5 3 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm5m1_pins: pwm5m1-pins {
+//			rockchip,pins =
+//				/* pwm5_m1 */
+//				<2 RK_PB0 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm5m2_pins: pwm5m2-pins {
+//			rockchip,pins =
+//				/* pwm5_m2 */
+//				<1 RK_PC2 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm6 {
+//		/omit-if-no-ref/
+//		pwm6m0_pins: pwm6m0-pins {
+//			rockchip,pins =
+//				/* pwm6_m0 */
+//				<0 RK_PA6 3 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm6m1_pins: pwm6m1-pins {
+//			rockchip,pins =
+//				/* pwm6_m1 */
+//				<2 RK_PB1 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm6m2_pins: pwm6m2-pins {
+//			rockchip,pins =
+//				/* pwm6_m2 */
+//				<1 RK_PC3 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm7 {
+//		/omit-if-no-ref/
+//		pwm7m0_pins: pwm7m0-pins {
+//			rockchip,pins =
+//				/* pwm7_ir_m0 */
+//				<1 RK_PA0 3 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm7m1_pins: pwm7m1-pins {
+//			rockchip,pins =
+//				/* pwm7_ir_m1 */
+//				<1 RK_PB1 2 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm7m2_pins: pwm7m2-pins {
+//			rockchip,pins =
+//				/* pwm7_ir_m2 */
+//				<3 RK_PC6 2 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm8 {
+//		/omit-if-no-ref/
+//		pwm8m0_pins: pwm8m0-pins {
+//			rockchip,pins =
+//				/* pwm8_m0 */
+//				<3 RK_PA3 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm8m1_pins: pwm8m1-pins {
+//			rockchip,pins =
+//				/* pwm8_m1 */
+//				<1 RK_PC4 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm9 {
+//		/omit-if-no-ref/
+//		pwm9m0_pins: pwm9m0-pins {
+//			rockchip,pins =
+//				/* pwm9_m0 */
+//				<3 RK_PA2 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm9m1_pins: pwm9m1-pins {
+//			rockchip,pins =
+//				/* pwm9_m1 */
+//				<1 RK_PC5 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm10 {
+//		/omit-if-no-ref/
+//		pwm10m0_pins: pwm10m0-pins {
+//			rockchip,pins =
+//				/* pwm10_m0 */
+//				<3 RK_PA4 5 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm10m1_pins: pwm10m1-pins {
+//			rockchip,pins =
+//				/* pwm10_m1 */
+//				<1 RK_PC6 3 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm10m2_pins: pwm10m2-pins {
+//			rockchip,pins =
+//				/* pwm10_m2 */
+//				<1 RK_PD1 3 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	pwm11 {
+//		/omit-if-no-ref/
+//		pwm11m0_pins: pwm11m0-pins {
+//			rockchip,pins =
+//				/* pwm11_ir_m0 */
+//				<3 RK_PA5 5 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm11m1_pins: pwm11m1-pins {
+//			rockchip,pins =
+//				/* pwm11_ir_m1 */
+//				<1 RK_PC7 3 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		pwm11m2_pins: pwm11m2-pins {
+//			rockchip,pins =
+//				/* pwm11_ir_m2 */
+//				<1 RK_PD3 5 &pcfg_pull_none>;
+//		};
+//	};
+//
 	rtc {
 		/omit-if-no-ref/
 		rtc_pins: rtc-pins {
@@ -850,243 +919,243 @@
 		};
 	};
 
-	uart0 {
-		/omit-if-no-ref/
-		uart0m0_xfer: uart0m0-xfer {
-			rockchip,pins =
-				/* uart0_rx_m0 */
-				<0 RK_PA0 1 &pcfg_pull_up>,
-				/* uart0_tx_m0 */
-				<0 RK_PA1 1 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart0m1_xfer: uart0m1-xfer {
-			rockchip,pins =
-				/* uart0_rx_m1 */
-				<2 RK_PB0 1 &pcfg_pull_up>,
-				/* uart0_tx_m1 */
-				<2 RK_PB1 1 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart0m1_ctsn: uart0m1-ctsn {
-			rockchip,pins =
-				/* uart0m1_ctsn */
-				<2 RK_PA7 1 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		uart0m1_rtsn: uart0m1-rtsn {
-			rockchip,pins =
-				/* uart0m1_rtsn */
-				<2 RK_PA6 1 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		uart0m2_xfer: uart0m2-xfer {
-			rockchip,pins =
-				/* uart0_rx_m2 */
-				<4 RK_PA0 3 &pcfg_pull_up>,
-				/* uart0_tx_m2 */
-				<4 RK_PA1 3 &pcfg_pull_up>;
-		};
-	};
-
-	uart1 {
-		/omit-if-no-ref/
-		uart1m0_xfer: uart1m0-xfer {
-			rockchip,pins =
-				/* uart1_rx_m0 */
-				<1 RK_PA4 1 &pcfg_pull_up>,
-				/* uart1_tx_m0 */
-				<1 RK_PA3 1 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart1m0_ctsn: uart1m0-ctsn {
-			rockchip,pins =
-				/* uart1m0_ctsn */
-				<0 RK_PA6 2 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		uart1m0_rtsn: uart1m0-rtsn {
-			rockchip,pins =
-				/* uart1m0_rtsn */
-				<0 RK_PA5 2 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		uart1m1_xfer: uart1m1-xfer {
-			rockchip,pins =
-				/* uart1_rx_m1 */
-				<2 RK_PA5 4 &pcfg_pull_up>,
-				/* uart1_tx_m1 */
-				<2 RK_PA4 4 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart1m1_ctsn: uart1m1-ctsn {
-			rockchip,pins =
-				/* uart1m1_ctsn */
-				<2 RK_PA0 4 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		uart1m1_rtsn: uart1m1-rtsn {
-			rockchip,pins =
-				/* uart1m1_rtsn */
-				<2 RK_PA1 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		uart1m2_xfer: uart1m2-xfer {
-			rockchip,pins =
-				/* uart1_rx_m2 */
-				<4 RK_PA7 3 &pcfg_pull_up>,
-				/* uart1_tx_m2 */
-				<4 RK_PA5 3 &pcfg_pull_up>;
-		};
-	};
-
-	uart2 {
-		/omit-if-no-ref/
-		uart2m0_xfer: uart2m0-xfer {
-			rockchip,pins =
-				/* uart2_rx_m0 */
-				<3 RK_PA3 2 &pcfg_pull_up>,
-				/* uart2_tx_m0 */
-				<3 RK_PA2 2 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart2m1_xfer: uart2m1-xfer {
-			rockchip,pins =
-				/* uart2_rx_m1 */
-				<1 RK_PB3 2 &pcfg_pull_up>,
-				/* uart2_tx_m1 */
-				<1 RK_PB2 2 &pcfg_pull_up>;
-		};
-	};
-
-	uart3 {
-		/omit-if-no-ref/
-		uart3m0_xfer: uart3m0-xfer {
-			rockchip,pins =
-				/* uart3_rx_m0 */
-				<1 RK_PA1 1 &pcfg_pull_up>,
-				/* uart3_tx_m0 */
-				<1 RK_PA0 1 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart3m1_xfer: uart3m1-xfer {
-			rockchip,pins =
-				/* uart3_rx_m1 */
-				<1 RK_PD1 5 &pcfg_pull_up>,
-				/* uart3_tx_m1 */
-				<1 RK_PD0 5 &pcfg_pull_up>;
-		};
-	};
-
-	uart4 {
-		/omit-if-no-ref/
-		uart4m0_xfer: uart4m0-xfer {
-			rockchip,pins =
-				/* uart4_rx_m0 */
-				<1 RK_PB0 1 &pcfg_pull_up>,
-				/* uart4_tx_m0 */
-				<1 RK_PB1 1 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart4m1_xfer: uart4m1-xfer {
-			rockchip,pins =
-				/* uart4_rx_m1 */
-				<1 RK_PC4 4 &pcfg_pull_up>,
-				/* uart4_tx_m1 */
-				<1 RK_PC5 4 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart4m1_ctsn: uart4m1-ctsn {
-			rockchip,pins =
-				/* uart4m1_ctsn */
-				<1 RK_PC7 4 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		uart4m1_rtsn: uart4m1-rtsn {
-			rockchip,pins =
-				/* uart4m1_rtsn */
-				<1 RK_PC6 4 &pcfg_pull_none>;
-		};
-	};
-
-	uart5 {
-		/omit-if-no-ref/
-		uart5m0_xfer: uart5m0-xfer {
-			rockchip,pins =
-				/* uart5_rx_m0 */
-				<3 RK_PA7 2 &pcfg_pull_up>,
-				/* uart5_tx_m0 */
-				<3 RK_PA6 2 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart5m0_ctsn: uart5m0-ctsn {
-			rockchip,pins =
-				/* uart5m0_ctsn */
-				<3 RK_PA5 2 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		uart5m0_rtsn: uart5m0-rtsn {
-			rockchip,pins =
-				/* uart5m0_rtsn */
-				<3 RK_PA4 2 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		uart5m1_xfer: uart5m1-xfer {
-			rockchip,pins =
-				/* uart5_rx_m1 */
-				<1 RK_PD2 4 &pcfg_pull_up>,
-				/* uart5_tx_m1 */
-				<1 RK_PD3 4 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart5m1_ctsn: uart5m1-ctsn {
-			rockchip,pins =
-				/* uart5m1_ctsn */
-				<1 RK_PD1 4 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		uart5m1_rtsn: uart5m1-rtsn {
-			rockchip,pins =
-				/* uart5m1_rtsn */
-				<1 RK_PD0 4 &pcfg_pull_none>;
-		};
-
-		/omit-if-no-ref/
-		uart5m2_xfer: uart5m2-xfer {
-			rockchip,pins =
-				/* uart5_rx_m2 */
-				<3 RK_PD0 2 &pcfg_pull_up>,
-				/* uart5_tx_m2 */
-				<3 RK_PC7 2 &pcfg_pull_up>;
-		};
-
-		/omit-if-no-ref/
-		uart5m2_ctsn: uart5m2-ctsn {
-			rockchip,pins =
-				/* uart5m2_ctsn */
-				<3 RK_PD2 2 &pcfg_pull_none>;
-		};
-		/omit-if-no-ref/
-		uart5m2_rtsn: uart5m2-rtsn {
-			rockchip,pins =
-				/* uart5m2_rtsn */
-				<3 RK_PD1 2 &pcfg_pull_none>;
-		};
-	};
+//	uart0 {
+//		/omit-if-no-ref/
+//		uart0m0_xfer: uart0m0-xfer {
+//			rockchip,pins =
+//				/* uart0_rx_m0 */
+//				<0 RK_PA0 1 &pcfg_pull_up>,
+//				/* uart0_tx_m0 */
+//				<0 RK_PA1 1 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart0m1_xfer: uart0m1-xfer {
+//			rockchip,pins =
+//				/* uart0_rx_m1 */
+//				<2 RK_PB0 1 &pcfg_pull_up>,
+//				/* uart0_tx_m1 */
+//				<2 RK_PB1 1 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart0m1_ctsn: uart0m1-ctsn {
+//			rockchip,pins =
+//				/* uart0m1_ctsn */
+//				<2 RK_PA7 1 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		uart0m1_rtsn: uart0m1-rtsn {
+//			rockchip,pins =
+//				/* uart0m1_rtsn */
+//				<2 RK_PA6 1 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart0m2_xfer: uart0m2-xfer {
+//			rockchip,pins =
+//				/* uart0_rx_m2 */
+//				<4 RK_PA0 3 &pcfg_pull_up>,
+//				/* uart0_tx_m2 */
+//				<4 RK_PA1 3 &pcfg_pull_up>;
+//		};
+//	};
+//
+//	uart1 {
+//		/omit-if-no-ref/
+//		uart1m0_xfer: uart1m0-xfer {
+//			rockchip,pins =
+//				/* uart1_rx_m0 */
+//				<1 RK_PA4 1 &pcfg_pull_up>,
+//				/* uart1_tx_m0 */
+//				<1 RK_PA3 1 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart1m0_ctsn: uart1m0-ctsn {
+//			rockchip,pins =
+//				/* uart1m0_ctsn */
+//				<0 RK_PA6 2 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		uart1m0_rtsn: uart1m0-rtsn {
+//			rockchip,pins =
+//				/* uart1m0_rtsn */
+//				<0 RK_PA5 2 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart1m1_xfer: uart1m1-xfer {
+//			rockchip,pins =
+//				/* uart1_rx_m1 */
+//				<2 RK_PA5 4 &pcfg_pull_up>,
+//				/* uart1_tx_m1 */
+//				<2 RK_PA4 4 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart1m1_ctsn: uart1m1-ctsn {
+//			rockchip,pins =
+//				/* uart1m1_ctsn */
+//				<2 RK_PA0 4 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		uart1m1_rtsn: uart1m1-rtsn {
+//			rockchip,pins =
+//				/* uart1m1_rtsn */
+//				<2 RK_PA1 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart1m2_xfer: uart1m2-xfer {
+//			rockchip,pins =
+//				/* uart1_rx_m2 */
+//				<4 RK_PA7 3 &pcfg_pull_up>,
+//				/* uart1_tx_m2 */
+//				<4 RK_PA5 3 &pcfg_pull_up>;
+//		};
+//	};
+//
+//	uart2 {
+//		/omit-if-no-ref/
+//		uart2m0_xfer: uart2m0-xfer {
+//			rockchip,pins =
+//				/* uart2_rx_m0 */
+//				<3 RK_PA3 2 &pcfg_pull_up>,
+//				/* uart2_tx_m0 */
+//				<3 RK_PA2 2 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart2m1_xfer: uart2m1-xfer {
+//			rockchip,pins =
+//				/* uart2_rx_m1 */
+//				<1 RK_PB3 2 &pcfg_pull_up>,
+//				/* uart2_tx_m1 */
+//				<1 RK_PB2 2 &pcfg_pull_up>;
+//		};
+//	};
+//
+//	uart3 {
+//		/omit-if-no-ref/
+//		uart3m0_xfer: uart3m0-xfer {
+//			rockchip,pins =
+//				/* uart3_rx_m0 */
+//				<1 RK_PA1 1 &pcfg_pull_up>,
+//				/* uart3_tx_m0 */
+//				<1 RK_PA0 1 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart3m1_xfer: uart3m1-xfer {
+//			rockchip,pins =
+//				/* uart3_rx_m1 */
+//				<1 RK_PD1 5 &pcfg_pull_up>,
+//				/* uart3_tx_m1 */
+//				<1 RK_PD0 5 &pcfg_pull_up>;
+//		};
+//	};
+//
+//	uart4 {
+//		/omit-if-no-ref/
+//		uart4m0_xfer: uart4m0-xfer {
+//			rockchip,pins =
+//				/* uart4_rx_m0 */
+//				<1 RK_PB0 1 &pcfg_pull_up>,
+//				/* uart4_tx_m0 */
+//				<1 RK_PB1 1 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart4m1_xfer: uart4m1-xfer {
+//			rockchip,pins =
+//				/* uart4_rx_m1 */
+//				<1 RK_PC4 4 &pcfg_pull_up>,
+//				/* uart4_tx_m1 */
+//				<1 RK_PC5 4 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart4m1_ctsn: uart4m1-ctsn {
+//			rockchip,pins =
+//				/* uart4m1_ctsn */
+//				<1 RK_PC7 4 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		uart4m1_rtsn: uart4m1-rtsn {
+//			rockchip,pins =
+//				/* uart4m1_rtsn */
+//				<1 RK_PC6 4 &pcfg_pull_none>;
+//		};
+//	};
+//
+//	uart5 {
+//		/omit-if-no-ref/
+//		uart5m0_xfer: uart5m0-xfer {
+//			rockchip,pins =
+//				/* uart5_rx_m0 */
+//				<3 RK_PA7 2 &pcfg_pull_up>,
+//				/* uart5_tx_m0 */
+//				<3 RK_PA6 2 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart5m0_ctsn: uart5m0-ctsn {
+//			rockchip,pins =
+//				/* uart5m0_ctsn */
+//				<3 RK_PA5 2 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		uart5m0_rtsn: uart5m0-rtsn {
+//			rockchip,pins =
+//				/* uart5m0_rtsn */
+//				<3 RK_PA4 2 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart5m1_xfer: uart5m1-xfer {
+//			rockchip,pins =
+//				/* uart5_rx_m1 */
+//				<1 RK_PD2 4 &pcfg_pull_up>,
+//				/* uart5_tx_m1 */
+//				<1 RK_PD3 4 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart5m1_ctsn: uart5m1-ctsn {
+//			rockchip,pins =
+//				/* uart5m1_ctsn */
+//				<1 RK_PD1 4 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		uart5m1_rtsn: uart5m1-rtsn {
+//			rockchip,pins =
+//				/* uart5m1_rtsn */
+//				<1 RK_PD0 4 &pcfg_pull_none>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart5m2_xfer: uart5m2-xfer {
+//			rockchip,pins =
+//				/* uart5_rx_m2 */
+//				<3 RK_PD0 2 &pcfg_pull_up>,
+//				/* uart5_tx_m2 */
+//				<3 RK_PC7 2 &pcfg_pull_up>;
+//		};
+//
+//		/omit-if-no-ref/
+//		uart5m2_ctsn: uart5m2-ctsn {
+//			rockchip,pins =
+//				/* uart5m2_ctsn */
+//				<3 RK_PD2 2 &pcfg_pull_none>;
+//		};
+//		/omit-if-no-ref/
+//		uart5m2_rtsn: uart5m2-rtsn {
+//			rockchip,pins =
+//				/* uart5m2_rtsn */
+//				<3 RK_PD1 2 &pcfg_pull_none>;
+//		};
+//	};
 
 	vicap {
 		/omit-if-no-ref/

@@ -37,26 +37,8 @@
 		mmc0 = &emmc;
 		mmc1 = &sdmmc;
 		mmc2 = &sdio;
-		pwm0 = &pwm0;
-		pwm1 = &pwm1;
-		pwm2 = &pwm2;
-		pwm3 = &pwm3;
-		pwm4 = &pwm4;
-		pwm5 = &pwm5;
-		pwm6 = &pwm6;
-		pwm7 = &pwm7;
-		pwm8 = &pwm8;
-		pwm9 = &pwm9;
-		pwm10 = &pwm10;
-		pwm11 = &pwm11;
 		rkcif_mipi_lvds0 = &rkcif_mipi_lvds;
 		rkcif_mipi_lvds1 = &rkcif_mipi_lvds1;
-		serial0 = &uart0;
-		serial1 = &uart1;
-		serial2 = &uart2;
-		serial3 = &uart3;
-		serial4 = &uart4;
-		serial5 = &uart5;
 		spi0 = &spi0;
 		spi1 = &spi1;
 		spi2 = &sfc;
@@ -70,7 +52,7 @@
 			clock-frequency = <1300000000>;
 			clock-output-names = "cpu_pvtpll";
 			#clock-cells = <0>;
-			status = "disabled";
+			status = "okay";
 		};
 
 		rkvenc_pvtpll: pvtpll-0 {
@@ -93,6 +75,51 @@
 			clock-output-names = "xin24m";
 			#clock-cells = <0>;
 		};
+	};
+
+	i2s0_8ch: i2s@ffae0000 {
+		compatible = "rockchip,rv1106-i2s-tdm";
+		reg = <0xffae0000 0x1000>;
+		interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
+// ORIGINAL CONFIG
+//		clocks = <&cru MCLK_I2S0_8CH_TX>, <&cru MCLK_I2S0_8CH_RX>, <&cru HCLK_I2S0>;
+//		clock-names = "mclk_tx", "mclk_rx", "hclk";
+
+// CONFIG FOR PLL OUT
+	        clocks = <&cru MCLK_I2S0_8CH_TX>, <&cru MCLK_I2S0_8CH_RX>, <&cru HCLK_I2S0>,
+                <&cru CLK_I2S0_8CH_TX_SRC>, <&cru CLK_I2S0_8CH_RX_SRC>,
+                <&cru PLL_GPLL>, <&cru PLL_GPLL>;
+        	clock-names = "mclk_tx", "mclk_rx", "hclk",
+                      "mclk_tx_src", "mclk_rx_src",
+                      "mclk_root0", "mclk_root1";
+        	rockchip,mclk-calibrate;
+
+// CONFIG FOR EXT MCLK
+//		assigned-clocks = <&cru CLK_I2S0_8CH_TX>, <&cru CLK_I2S0_8CH_RX>;
+//		assigned-clock-parents = <&mclk_in>, <&mclk_in>;
+		dmas = <&dmac 22>, <&dmac 21>;
+		dma-names = "tx", "rx";
+		resets = <&cru SRST_M_I2S0_8CH_TX>, <&cru SRST_M_I2S0_8CH_RX>;
+		reset-names = "tx-m", "rx-m";
+		rockchip,cru = <&cru>;
+		rockchip,grf = <&grf>;
+		rockchip,clk-trcm = <1>;
+		rockchip,playback-channels = <8>;
+		rockchip,playback-only;
+		#sound-dai-cells = <0>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&i2s0m0_sclk_tx
+//			     	&i2s0m0_sclk_rx
+			     	&i2s0m0_lrck_tx
+//			     	&i2s0m0_lrck_rx
+			     	&i2s0m0_sdi0
+				&i2s0m0_mclk_tx
+//				&i2s0m0_mclk_rx
+			     	&i2s0m0_sdo0
+			     	&i2s0m0_sdo1_sdi3
+			     	&i2s0m0_sdo2_sdi2
+			     	&i2s0m0_sdo3_sdi1>;
+		status = "disabled";
 	};
 
 	cpus {
@@ -460,113 +487,6 @@
 		status = "disabled";
 	};
 
-	dsm: codec-digital@ff340000 {
-		compatible = "rockchip,rv1106-codec-digital", "rockchip,codec-digital-v1";
-		reg = <0xff340000 0x1000>;
-		clocks = <&cru MCLK_DSM>, <&cru PCLK_DSM>;
-		clock-names = "dac", "pclk";
-		resets = <&cru SRST_M_DSM>;
-		reset-names = "reset" ;
-		rockchip,grf = <&grf>;
-		rockchip,pwm-output-mode;
-		#sound-dai-cells = <0>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&dsmaudio_pins>;
-		status = "disabled";
-	};
-
-	pwm0: pwm@ff350000 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff350000 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm0m0_pins>;
-		clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm1: pwm@ff350010 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff350010 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm1m0_pins>;
-		clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm2: pwm@ff350020 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff350020 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm2m0_pins>;
-		clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm3: pwm@ff350030 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff350030 0x10>;
-		interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>,
-			     <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm3m0_pins>;
-		clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm4: pwm@ff360000 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff360000 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm4m0_pins>;
-		clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm5: pwm@ff360010 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff360010 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm5m0_pins>;
-		clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm6: pwm@ff360020 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff360020 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm6m0_pins>;
-		clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm7: pwm@ff360030 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff360030 0x10>;
-		interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>,
-			     <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm7m0_pins>;
-		clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
 	pmu_mailbox: mailbox@ff378000 {
 		compatible = "rockchip,rv1106-mailbox",
 			     "rockchip,rk3368-mailbox";
@@ -621,17 +541,6 @@
 			<200000000>;
 	};
 
-	saradc: saradc@ff3c0000 {
-		compatible = "rockchip,rv1106-saradc";
-		reg = <0xff3c0000 0x200>;
-		interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
-		#io-channel-cells = <1>;
-		clocks = <&cru CLK_SARADC>, <&cru PCLK_SARADC>;
-		clock-names = "saradc", "apb_pclk";
-		resets = <&cru SRST_P_SARADC>;
-		reset-names = "saradc-apb";
-		status = "disabled";
-	};
 
 	tsadc: tsadc@ff3c8000 {
 		compatible = "rockchip,rv1106-tsadc";
@@ -699,7 +608,7 @@
 		resets = <&cru SRST_USBPHY_POR>, <&cru SRST_P_USBPHY>;
 		reset-names = "u2phy", "u2phy-apb";
 		#clock-cells = <0>;
-		status = "disabled";
+		status = "okay";
 
 		u2phy_otg: otg-port {
 			#phy-cells = <0>;
@@ -709,7 +618,7 @@
 				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
 			interrupt-names = "otg-bvalid", "otg-id",
 					  "linestate", "disconnect";
-			status = "disabled";
+			status = "okay";
 		};
 	};
 
@@ -816,144 +725,6 @@
 		clock-names = "pclk_acodec", "mclk_acodec", "mclk_cpu";
 		resets = <&cru SRST_P_ACODEC>;
 		reset-names = "acodec-reset";
-		acodec,micbias;
-		init-mic-gain = <0x22>; /* Left:20dB Right:20dB */
-		status = "disabled";
-	};
-
-	pwm8: pwm@ff490000 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff490000 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm8m0_pins>;
-		clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm9: pwm@ff490010 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff490010 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm9m0_pins>;
-		clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm10: pwm@ff490020 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff490020 0x10>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm10m0_pins>;
-		clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	pwm11: pwm@ff490030 {
-		compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
-		reg = <0xff490030 0x10>;
-		interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>,
-			     <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
-		#pwm-cells = <3>;
-		pinctrl-names = "active";
-		pinctrl-0 = <&pwm11m0_pins>;
-		clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
-		clock-names = "pwm", "pclk";
-		status = "disabled";
-	};
-
-	uart0: serial@ff4a0000 {
-		compatible = "rockchip,rv1106-uart", "snps,dw-apb-uart";
-		reg = <0xff4a0000 0x100>;
-		interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
-		reg-shift = <2>;
-		reg-io-width = <4>;
-		dmas = <&dmac 7>, <&dmac 6>;
-		clock-frequency = <24000000>;
-		clocks = <&cru SCLK_UART0>, <&cru PCLK_UART0>;
-		clock-names = "baudclk", "apb_pclk";
-		pinctrl-names = "default";
-		pinctrl-0 = <&uart0m0_xfer>;
-		status = "disabled";
-	};
-
-	uart1: serial@ff4b0000 {
-		compatible = "rockchip,rv1106-uart", "snps,dw-apb-uart";
-		reg = <0xff4b0000 0x100>;
-		interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
-		reg-shift = <2>;
-		reg-io-width = <4>;
-		dmas = <&dmac 9>, <&dmac 8>;
-		clock-frequency = <24000000>;
-		clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
-		clock-names = "baudclk", "apb_pclk";
-		pinctrl-names = "default";
-		pinctrl-0 = <&uart1m0_xfer &uart1m0_ctsn &uart1m0_rtsn>;
-		status = "disabled";
-	};
-
-	uart2: serial@ff4c0000 {
-		compatible = "rockchip,rv1106-uart", "snps,dw-apb-uart";
-		reg = <0xff4c0000 0x100>;
-		interrupts = <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
-		reg-shift = <2>;
-		reg-io-width = <4>;
-		dmas = <&dmac 11>, <&dmac 10>;
-		clock-frequency = <24000000>;
-		clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
-		clock-names = "baudclk", "apb_pclk";
-		pinctrl-names = "default";
-		pinctrl-0 = <&uart2m1_xfer>;
-		status = "disabled";
-	};
-
-	uart3: serial@ff4d0000 {
-		compatible = "rockchip,rv1106-uart", "snps,dw-apb-uart";
-		reg = <0xff4d0000 0x100>;
-		interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
-		reg-shift = <2>;
-		reg-io-width = <4>;
-		dmas = <&dmac 13>, <&dmac 12>;
-		clock-frequency = <24000000>;
-		clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
-		clock-names = "baudclk", "apb_pclk";
-		pinctrl-names = "default";
-		pinctrl-0 = <&uart3m0_xfer>;
-		status = "disabled";
-	};
-
-	uart4: serial@ff4e0000 {
-		compatible = "rockchip,rv1106-uart", "snps,dw-apb-uart";
-		reg = <0xff4e0000 0x100>;
-		interrupts = <GIC_SPI 29 IRQ_TYPE_LEVEL_HIGH>;
-		reg-shift = <2>;
-		reg-io-width = <4>;
-		dmas = <&dmac 15>, <&dmac 14>;
-		clock-frequency = <24000000>;
-		clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
-		clock-names = "baudclk", "apb_pclk";
-		pinctrl-names = "default";
-		pinctrl-0 = <&uart4m0_xfer>;
-		status = "disabled";
-	};
-
-	uart5: serial@ff4f0000 {
-		compatible = "rockchip,rv1106-uart", "snps,dw-apb-uart";
-		reg = <0xff4f0000 0x100>;
-		interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
-		reg-shift = <2>;
-		reg-io-width = <4>;
-		dmas = <&dmac 17>, <&dmac 16>;
-		clock-frequency = <24000000>;
-		clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
-		clock-names = "baudclk", "apb_pclk";
-		pinctrl-names = "default";
-		pinctrl-0 = <&uart5m0_xfer &uart5m0_ctsn &uart5m0_rtsn>;
 		status = "disabled";
 	};
 
@@ -1328,20 +1099,7 @@
 		status = "disabled";
 	};
 
-	i2s0_8ch: i2s@ffae0000 {
-		compatible = "rockchip,rv1106-i2s-tdm";
-		reg = <0xffae0000 0x1000>;
-		interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-		clocks = <&cru MCLK_I2S0_8CH_TX>, <&cru MCLK_I2S0_8CH_RX>, <&cru HCLK_I2S0>;
-		clock-names = "mclk_tx", "mclk_rx", "hclk";
-		dmas = <&dmac 22>, <&dmac 21>;
-		dma-names = "tx", "rx";
-		resets = <&cru SRST_M_I2S0_8CH_TX>, <&cru SRST_M_I2S0_8CH_RX>;
-		reset-names = "tx-m", "rx-m";
-		rockchip,clk-trcm = <1>;
-		#sound-dai-cells = <0>;
-		status = "disabled";
-	};
+
 
 	usbdrd: usbdrd {
 		compatible = "rockchip,rv1106-dwc3", "rockchip,rk3399-dwc3";
@@ -1351,7 +1109,7 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 		ranges;
-		status = "disabled";
+		status = "okay";
 
 		usbdrd_dwc3: usb@ffb00000 {
 			compatible = "snps,dwc3";

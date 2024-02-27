@@ -2,11 +2,11 @@
 /*
  * Copyright (c) 2022 Rockchip Electronics Co., Ltd.
  */
-#include "rv1106-amp.dtsi"
+//#include "rv1106-amp.dtsi"
 
 / {
 	chosen {
-		bootargs = "earlycon=uart8250,mmio32,0xff4c0000 console=ttyFIQ0 root=/dev/mmcblk1p7 rootwait snd_soc_core.prealloc_buffer_size_kbytes=16 coherent_pool=0";
+		bootargs = "earlycon=uart8250,mmio32,0xff4c0000 console=ttyFIQ0 root=/dev/mmcblk1p7 rootwait snd_soc_core.prealloc_buffer_size_kbytes=128 coherent_pool=0";
 	};
 
 	acodec_sound: acodec-sound {
@@ -49,6 +49,17 @@
 
 		regulator-boot-on;
 	};
+
+
+//        mclk_in: mclk-in {
+//               compatible = "fixed-clock";
+//               #clock-cells = <0>;
+//               clock-frequency = <49152000>;
+//               clock-output-names = "i2s0_mclkin";
+//               select-gpios = <&gpio1 RK_PA2 GPIO_ACTIVE_HIGH>;
+//        };
+
+
 	leds: leds {
 		compatible = "gpio-leds";
 		work_led: work{
@@ -62,7 +73,7 @@
 &acodec {
 	#sound-dai-cells = <0>;
 	pa-ctl-gpios = <&gpio1 RK_PA1 GPIO_ACTIVE_HIGH>;
-	status = "okay";
+	status = "disable";
 };
 
 &cpu0 {
@@ -70,11 +81,11 @@
 };
 
 &csi2_dphy_hw {
-	status = "okay";
+	status = "disable";
 };
 
 &csi2_dphy0 {
-	status = "okay";
+	status = "disable";
 
 	ports {
 		#address-cells = <1>;
@@ -118,14 +129,14 @@
 };
 
 &i2c4 {
-	status = "okay";
+	status = "disable";
 	clock-frequency = <400000>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c4m2_xfer>;
 
 	sc3336: sc3336@30 {
 		compatible = "smartsens,sc3336";
-		status = "okay";
+		status = "disable";
 		reg = <0x30>;
 		clocks = <&cru MCLK_REF_MIPI0>;
 		clock-names = "xvclk";
@@ -146,7 +157,7 @@
 
 	sc4336: sc4336@30 {
 		compatible = "smartsens,sc4336";
-		status = "okay";
+		status = "disable";
 		reg = <0x30>;
 		clocks = <&cru MCLK_REF_MIPI0>;
 		clock-names = "xvclk";
@@ -167,7 +178,7 @@
 
 	sc530ai: sc530ai@30 {
 		compatible = "smartsens,sc530ai";
-		status = "okay";
+		status = "disable";
 		reg = <0x30>;
 		clocks = <&cru MCLK_REF_MIPI0>;
 		clock-names = "xvclk";
@@ -193,7 +204,7 @@
 };
 
 &mipi0_csi2 {
-	status = "okay";
+	status = "disable";
 
 	ports {
 		#address-cells = <1>;
@@ -224,11 +235,11 @@
 };
 
 &rkcif {
-	status = "okay";
+	status = "disable";
 };
 
 &rkcif_mipi_lvds {
-	status = "okay";
+	status = "disable";
 
 	pinctrl-names = "default";
 	pinctrl-0 = <&mipi_pins>;
@@ -241,7 +252,7 @@
 };
 
 &rkcif_mipi_lvds_sditf {
-	status = "okay";
+	status = "disable";
 
 	port {
 		/* MIPI CSI-2 endpoint */
@@ -252,11 +263,11 @@
 };
 
 &rkisp {
-	status = "okay";
+	status = "disable";
 };
 
 &rkisp_vir0 {
-	status = "okay";
+	status = "disable";
 
 	port@0 {
 		isp_in: endpoint {
@@ -265,10 +276,10 @@
 	};
 };
 
-&saradc {
-	status = "okay";
-	vref-supply = <&vcc_1v8>;
-};
+//&saradc {
+//	status = "okay";
+//	vref-supply = <&vcc_1v8>;
+//};
 
 
 &tsadc {
